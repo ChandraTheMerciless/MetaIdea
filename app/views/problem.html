@@ -1,0 +1,12 @@
+<h2>{{problem.title}} 
+  <a class="glyphicon glyphicon-menu-down text-danger" ng-click="voteDown()"></a>
+  <span>{{problem.votes}}</span>
+  <a class="glyphicon glyphicon-menu-up text-primary" ng-click="voteUp()"></a>
+</h2>
+
+<p>{{problem.description}}</p>
+
+<div ng-repeat="comment in problem.comments">
+  <h3>{{comment.creator}}</h3>
+  <p>{{comment.description}}</p>
+</div>
