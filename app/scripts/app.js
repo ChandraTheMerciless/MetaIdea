@@ -27,6 +27,11 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/problems', {
+        templateUrl: 'views/problems.html',
+        controller: 'ProblemsCtrl',
+        controllerAs: 'problems'
+      })
       .when('/problem/:id', {
         templateUrl: 'views/problem.html',
         controller: 'ProblemCtrl',

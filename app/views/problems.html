@@ -1,0 +1,9 @@
+<h1 class="viewTitle">Current Problems</h1>
+
+<div ng-repeat="problem in problems">
+  <h2>
+    <a href="#/problem/{{problem.id}}">{{problem.title}}</a>
+  </h2>
+  <h3>{{problem.author}}</h3>
+  <hr />
+</div>

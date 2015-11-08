@@ -24,4 +24,13 @@ angular.module('budgetApp')
     //      service.updateProblem
     }
     
+    $scope.submitComment = function(){
+      console.log($scope.problem.commentNew);
+      
+//      $http.post("../service.js", $scope.problem)
+//        .success(function(response){
+//          console.log("success?");
+//        })
+    }
+    
   });

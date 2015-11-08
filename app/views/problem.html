@@ -1,12 +1,21 @@
-<h2>{{problem.title}} 
-  <a class="glyphicon glyphicon-menu-down text-danger" ng-click="voteDown()"></a>
-  <span>{{problem.votes}}</span>
-  <a class="glyphicon glyphicon-menu-up text-primary" ng-click="voteUp()"></a>
-</h2>
+<div class="problem-descrip">
+  <h2>{{problem.title}} 
+    <a class="glyphicon glyphicon-menu-down text-danger" ng-click="voteDown()"></a>
+    <span>{{problem.votes}}</span>
+    <a class="glyphicon glyphicon-menu-up text-info" ng-click="voteUp()"></a>
+  </h2>
+  <p>{{problem.description}}</p>
+  <hr />  
+</div>
 
-<p>{{problem.description}}</p>
-
-<div ng-repeat="comment in problem.comments">
+<div class="problem-comments" ng-repeat="comment in problem.comments">
   <h3>{{comment.creator}}</h3>
   <p>{{comment.description}}</p>
+  <hr />
+</div>
+
+<div class="problem-comment-submit">
+  <label for="commentNew">Comments:</label> <br />
+  <textarea id="submitCommentText" ng-model="problem.commentNew"></textarea> <br />
+  <button type="submit" id="submitCommentBtn" class="btn btn-info" ng-click="submitComment()">Submit Comment</button>
 </div>
