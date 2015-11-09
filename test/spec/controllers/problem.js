@@ -13,11 +13,14 @@ describe('Controller: ProblemCtrl', function () {
     scope = $rootScope.$new();
     ProblemCtrl = $controller('ProblemCtrl', {
       $scope: scope
+      
       // place here mocked dependencies
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(ProblemCtrl.awesomeThings.length).toBe(3);
+  it('should call the function on click submit', function () {
+    $scope.submitComment();
+    
+    //expect(ProblemCtrl.awesomeThings.length).toBe(3);
   });
 });

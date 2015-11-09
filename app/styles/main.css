@@ -37,7 +37,7 @@ textarea{
 }
 
 .container{
-  min-height:calc(100% - 255px);
+  min-height:calc(100% - 280px);
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
