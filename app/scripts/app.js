@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name budgetApp
+ * @name metaideaApp
  * @description
- * # budgetApp
+ * # metaideaApp
  *
  * Main module of the application.
  */
 angular
-  .module('budgetApp', [
+  .module('metaideaApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

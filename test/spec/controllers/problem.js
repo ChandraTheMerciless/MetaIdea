@@ -3,7 +3,7 @@
 describe('Controller: ProblemCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('budgetApp'));
+  beforeEach(module('metaideaApp'));
 
   var ProblemCtrl,
     scope;

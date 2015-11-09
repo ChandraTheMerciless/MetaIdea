@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name budgetApp.controller:ProblemsCtrl
+ * @name metaideaApp.controller:ProblemsCtrl
  * @description
  * # ProblemsCtrl
- * Controller of the budgetApp
+ * Controller of the metaideaApp
  */
-angular.module('budgetApp')
+angular.module('metaideaApp')
   .controller('ProblemsCtrl', function (service, $scope, $routeParams) {
 
     var problemList = $routeParams;

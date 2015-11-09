@@ -3,7 +3,7 @@
 describe('Service: service', function () {
 
   // load the service's module
-  beforeEach(module('budgetApp'));
+  beforeEach(module('metaideaApp'));
 
   // instantiate service
   var service;

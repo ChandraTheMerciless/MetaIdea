@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name budgetApp.service
+ * @name metaideaApp.service
  * @description
  * # service
- * Service in the budgetApp.
+ * Service in the metaideaApp.
  */
-angular.module('budgetApp')
+angular.module('metaideaApp')
   .service('service', function ($q) {
     var pageSize = 20;
     var service = {};

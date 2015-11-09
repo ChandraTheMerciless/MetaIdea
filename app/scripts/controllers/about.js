@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name budgetApp.controller:AboutCtrl
+ * @name metaideaApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the budgetApp
+ * Controller of the metaideaApp
  */
-angular.module('budgetApp')
+angular.module('metaideaApp')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
