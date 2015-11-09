@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name budgetApp.controller:ProblemCtrl
+ * @name metaideaApp.controller:ProblemCtrl
  * @description
  * # ProblemCtrl
- * Controller of the budgetApp
+ * Controller of the metaideaApp
  */
-angular.module('budgetApp')
+angular.module('metaideaApp')
   .controller('ProblemCtrl', function (service, $scope, $routeParams) {
     var problemId = $routeParams.id;
     service.getProblem(problemId).then(function(response){
