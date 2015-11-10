@@ -10,8 +10,9 @@
 angular.module('metaideaApp')
   .controller('ProblemCtrl', function (service, $scope, $routeParams) {
     var problemId = $routeParams.id;
+    
     service.getProblem(problemId).then(function(response){
-      $scope.problem = response.data;
+      $scope.problem = response.data[0];
     })
   
     $scope.vote = function(item, value){

@@ -12,8 +12,7 @@ angular.module('metaideaApp')
 
     var problemList = $routeParams;
     
-//    $http.get("../service.js").success(function(response){
-      service.getProblems(problemList).then(function(response){
+      service.getProblems().then(function(response){
         $scope.problems = response.data;
       })
   

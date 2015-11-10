@@ -9,18 +9,23 @@
  */
 angular.module('metaideaApp')
   .service('service', function ($q, parseServices) {
-        var service = {};
     
-      service.createProblems = function(description){
-          return parseServices.createProblems(description);
-      }
+    var service = {};
     
+    service.createProblems = function(problem){
+        return parseServices.createProblems(problem);
+    }
     
+    service.getProblems = function(){
+        return parseServices.getAll("Problem");    
+    }
     
-    service.getProblems = function(problemList){
-    var deferred = $q.defer();
-        deferred.resolve({data: problems});
-        return deferred.promise;
+    service.getProblem = function(problemId){
+        return parseServices.getById("Problem", problemId, "comments");    
+
+//    var deferred = $q.defer();
+//        deferred.resolve({data: problem});
+//        return deferred.promise;
     }
 
     
@@ -72,19 +77,10 @@ angular.module('metaideaApp')
     ]
   }
   
-     service.getProblems = function(problemList){
-    var deferred = $q.defer();
-        deferred.resolve({data: problems});
-        return deferred.promise;
-  }
     
 
    
-  service.getProblem = function(problemId){
-    var deferred = $q.defer();
-        deferred.resolve({data: problem});
-        return deferred.promise;
-  }
+  
 
 
     return service;
