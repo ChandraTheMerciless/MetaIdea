@@ -61,6 +61,10 @@ angular.module('metaideaApp')
         deferred.resolve({data: problems});
         return deferred.promise;
   }
+    
+  service.createProblems = function(newProblem){
+    console.log("Called service.js file from Create New page");
+  }
   
   service.getProblem = function(problemId){
     var deferred = $q.defer();
