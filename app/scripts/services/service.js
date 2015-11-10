@@ -66,6 +66,13 @@ angular.module('metaideaApp')
     console.log("Called service.js file from Create New page");
   }
   
+  service.editProblem = function(problemId){
+    console.log("save button detected from server");
+    var deferred = $q.defer();
+        deferred.resolve({data: problem});
+        return deferred.promise;
+  }
+  
   service.getProblem = function(problemId){
     var deferred = $q.defer();
         deferred.resolve({data: problem});

@@ -1,0 +1,32 @@
+<div>
+  <h2>{{problem.title}}</h2>
+
+  <div ng-hide="problem.editMode">
+    <p ng-model="problem.description">{{problem.description}}</p>
+    <button ng-click="editText(problem)" class="btn btn-warning">Edit</button> <br />
+  </div>
+
+  <div ng-show="problem.editMode">
+    <textarea ng-model="problem.description">{{problem.description}}</textarea> <br />
+    <button ng-click="saveText(problem)" class="btn btn-info">Save</button> <br />
+  </div>
+    
+  <hr />
+</div>
+
+<div class="problem-comments" ng-repeat="comment in problem.comments">
+<!--  <h3>{{comment.creator}}</h3>-->
+  
+  <div ng-hide="comment.editMode">
+    <p>{{comment.description}}</p>
+    <button ng-click="editText(comment)" class="btn btn-warning">Edit</button> <br />
+  </div>
+  
+  <div ng-show="comment.editMode">
+    <textarea ng-model="comment.description">{{comment.description}}</textarea> <br />
+    <button ng-click="saveText(comment)" class="btn btn-info">Save</button> <br />
+  </div>
+  
+  
+  <hr />
+</div>
