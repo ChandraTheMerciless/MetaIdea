@@ -10,8 +10,12 @@
 angular.module('metaideaApp')
   .service('service', function ($q, parseServices) {
         var service = {};
-
-    Parse.initialize("koEFPqcIz7Gofau3n9l3vUofPuulaLzpK97atJar", "XD89jziE9YErMS9glQOWY8H5ZBMBmnO5P8WIboE8");
+    
+      service.createProblems = function(description){
+          return parseServices.createProblems(description);
+      }
+    
+    
     
     service.getProblems = function(problemList){
     var deferred = $q.defer();
@@ -68,19 +72,14 @@ angular.module('metaideaApp')
     ]
   }
   
-<<<<<<< HEAD
-=======
-    service.getProblems = function(problemList){
+     service.getProblems = function(problemList){
     var deferred = $q.defer();
         deferred.resolve({data: problems});
         return deferred.promise;
   }
     
-  service.createProblems = function(newProblem){
-    console.log("Called service.js file from Create New page");
-  }
->>>>>>> 520679a7c48ad5b9cf3bd41f60addda98fa9a8aa
-  
+
+   
   service.getProblem = function(problemId){
     var deferred = $q.defer();
         deferred.resolve({data: problem});
