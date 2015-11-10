@@ -8,9 +8,19 @@
  * Service in the metaideaApp.
  */
 angular.module('metaideaApp')
-  .service('service', function ($q) {
+  .service('service', function ($q, parseServices) {
+        var service = {};
+
+    Parse.initialize("koEFPqcIz7Gofau3n9l3vUofPuulaLzpK97atJar", "XD89jziE9YErMS9glQOWY8H5ZBMBmnO5P8WIboE8");
+    
+    service.getProblems = function(problemList){
+    var deferred = $q.defer();
+        deferred.resolve({data: problems});
+        return deferred.promise;
+    }
+
+    
     var pageSize = 20;
-    var service = {};
    
     var problems = [
     {
@@ -47,20 +57,17 @@ angular.module('metaideaApp')
     comments: [
       { 
        description: 'Squid before they sold out hashtag DIY small batch fanny pack. Food truck single-origin coffee portland iPhone, semiotics whatever disrupt bespoke flannel banjo. Pop-up distillery leggings godard, tilde hoodie kombucha pitchfork typewriter etsy banh mi kitsch ennui tacos.',
-       creator: 'asdas'
+       creator: 'asdas',
+           votes: 0
       },
       {
         description: 'Squid before they sold out hashtag DIY small batch fanny pack. Food truck single-origin coffee portland iPhone, semiotics whatever disrupt bespoke flannel banjo. Pop-up distillery leggings godard, tilde hoodie kombucha pitchfork typewriter etsy banh mi kitsch ennui tacos.', 
-        creator: 'asdas'
+        creator: 'asdas',
+          votes: 7
       } 
     ]
   }
   
-    service.getProblems = function(problemList){
-    var deferred = $q.defer();
-        deferred.resolve({data: problems});
-        return deferred.promise;
-  }
   
   service.getProblem = function(problemId){
     var deferred = $q.defer();

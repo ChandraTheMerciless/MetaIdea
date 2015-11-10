@@ -14,18 +14,17 @@ angular.module('metaideaApp')
       $scope.problem = response.data;
     })
   
-    $scope.voteUp = function(){
-      $scope.problem.votes++;
+    $scope.vote = function(item, value){
+      item.votes = item.votes + value;
 //      service.updateProblem
     }
     
-    $scope.voteDown = function(){
-      $scope.problem.votes--;
-    //      service.updateProblem
-    }
+    $scope.newComment = {votes : 0}
     
-    $scope.submitComment = function(){
-      console.log($scope.problem.commentNew);
+    $scope.addComment = function(){
+        $scope.problem.comments.push($scope.newComment)
+        $scope.newComment = {votes : 0}
+//      console.log($scope.problem.commentNew);
       
 //      $http.post("../service.js", $scope.problem)
 //        .success(function(response){
