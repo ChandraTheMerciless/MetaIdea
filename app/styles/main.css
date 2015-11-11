@@ -37,7 +37,7 @@ textarea{
 }
 
 .container{
-  min-height:calc(100% - 280px);
+  min-height:calc(100% - 180px);
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -52,6 +52,7 @@ textarea{
 
 /* Custom page header */
 .header {
+/*
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
   background-color:rgb(100,100,100);
@@ -59,17 +60,22 @@ textarea{
   text-align:center;
   padding-top:20px;
   padding-bottom:0;
+*/
 }
 
 .header h1{
+/*
   margin-top:0;
   font-size:65px;
+*/
 }
 
 .navbar{
+/*
   margin-top:20px;
   margin-bottom:0;
   border-radius:0;
+*/
 }
 
 
