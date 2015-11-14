@@ -75,7 +75,7 @@ angular.module('metaideaApp')
           votes: 7
       } 
     ]
-  }
+  };
   
     
 
@@ -86,9 +86,14 @@ angular.module('metaideaApp')
     var deferred = $q.defer();
         deferred.resolve({data: problem});
         return deferred.promise;
-  }
-  
- 
+  };
+
+  service.login = function(){
+    console.log("login btn hit");
+    var deferred = $q.defer();
+    deferred.resolve({data: problem});
+    return deferred.promise;
+  };
 
     return service;
   });

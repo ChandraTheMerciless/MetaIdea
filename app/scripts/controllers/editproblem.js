@@ -12,14 +12,14 @@ angular.module('metaideaApp')
     var problemId = $routeParams.id;
     service.getProblem(problemId).then(function(response){
       $scope.problem = response.data;
-    })
+    });
     
     $scope.editMode = false;
     
     $scope.editText = function(item){
       console.log("click");
       item.editMode = true;
-    }
+    };
     
     $scope.saveText = function(item){
       item.editMode = false;
