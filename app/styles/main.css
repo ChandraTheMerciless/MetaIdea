@@ -13,11 +13,11 @@ a:hover{
 }
 
 textarea{
-  width:50%;
-  height:130px;
-  padding:.5em .7em .5em .7em;
-  margin-top:10px;
-  margin-bottom:10px;
+  /*width:300px;*/
+  /*height:130px;*/
+  /*padding:.5em .7em .5em .7em;*/
+  /*margin-top:10px;*/
+  /*margin-bottom:10px;*/
 }
 
 .highlight {
@@ -36,8 +36,16 @@ textarea{
   padding: 0.2em 0;
 }
 
+#wrapper{
+  /*min-height:calc(100% - 70px);*/
+  height:calc(100% - 70px);
+  /*background-color:white;*/
+}
+
 #page-wrapper{
-/*  margin:0;*/
+  padding-top:10px;
+  min-height:calc(100% - 50px);
+
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -56,6 +64,14 @@ textarea{
   margin-bottom: 0;
   line-height: 40px;
   padding-bottom: 19px;
+}
+
+h2{
+  margin-top:0;
+}
+
+.navbar{
+  margin-bottom:0;
 }
 
 /* Custom page footer */
