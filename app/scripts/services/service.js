@@ -22,10 +22,17 @@ angular.module('metaideaApp')
     
     service.getProblem = function(problemId){
         return parseServices.getById("Problem", problemId, "comments");    
+    }
+    
+    service.register = function(user){
+        var user = new Parse.User();
+        user.set("username", user.name);
+        user.set("password", user.password);
+        user.set("department", user.department);
+        user.set("email", user.email);
+        
+        return parseServices.register(user);
 
-//    var deferred = $q.defer();
-//        deferred.resolve({data: problem});
-//        return deferred.promise;
     }
 
     

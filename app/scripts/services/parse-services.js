@@ -63,6 +63,22 @@ angular.module('metaideaApp')
         return promise;
     }
     
+    service.register(user) {
+        var def = $q.defer();   
+
+        user.signUp(null, {
+          success: function(user) {
+                def.resolve(user);
+          },
+          error: function(user, error) {
+            // Show the error message somewhere and let the user try again.
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+        
+        return def.promise;
+    }
+    
     service.getById = function (className, id, include) {
         var def = $q.defer();   
 
