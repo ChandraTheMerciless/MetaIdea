@@ -11,8 +11,16 @@ angular.module('metaideaApp')
   //put this line back in when parse and service are set up
   //.controller('RegistrationCtrl', function (service, $scope, $routeParams) {
   .controller('RegistrationCtrl', function ($scope, $routeParams) {
-    $scope.newUser = function(){
+    $scope.newUser = {
+      name: "",
+      email:"",
+      department:"",
+      password:""
+    };
 
+    $scope.newUserReg = function(){
+
+      console.log($scope.newUser);
     };
 
     $scope.validPwds=true;
