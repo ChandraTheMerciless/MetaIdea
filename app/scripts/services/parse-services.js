@@ -13,7 +13,6 @@ angular.module('metaideaApp')
     
     Parse.initialize("koEFPqcIz7Gofau3n9l3vUofPuulaLzpK97atJar", "XD89jziE9YErMS9glQOWY8H5ZBMBmnO5P8WIboE8");
 
-    
     service.createProblems = function(item){
           var Problem = Parse.Object.extend("Problem");
           var problem = new Problem();
@@ -63,7 +62,7 @@ angular.module('metaideaApp')
         return promise;
     }
     
-    service.register(user) {
+    service.register = function(user) {
         var def = $q.defer();   
 
         user.signUp(null, {
@@ -114,6 +113,9 @@ angular.module('metaideaApp')
         return promise;
     }
     
+    service.current = function(){
+        return Parse.User.current();
+    }
     
     service.getAllFromPointer= function(className, colName){
         var def = $q.defer();   

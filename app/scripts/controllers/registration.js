@@ -9,6 +9,8 @@
  */
 angular.module('metaideaApp')
   .controller('RegistrationCtrl', function ($scope, service, $routeParams) {
+    
+    console.log(Parse.User.current())
     $scope.newUser = {
       name: "",
       email:"",
