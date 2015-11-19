@@ -102,6 +102,10 @@ angular.module('metaideaApp')
     return parseServices.login(loginData);
   };
 
+  service.logout = function(){
+    console.log("logout btn hit in service.js");
+    return parseServices.logout();
+  };
 
     //service.login = function(loginData){
     //  console.log("Login reached service.js?");

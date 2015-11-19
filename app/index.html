@@ -38,14 +38,19 @@
             </button>
 
             <a class="navbar-brand" href="#/">Meta Idea</a>
+
           </div>
+
+            <a class="navbar-brand"
+               ng-controller="LoginCtrl"
+               ng-hide="loggedIn"
+               ng-click="logoutUser()" href="#/">Logout</a>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
           <!--</div>-->
           <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav">
-              <li class=""><a href="#/dashboard">Dashboard</a></li>
               <li class="active"><a href="#/about">About</a></li>
               <li class=""><a href="#/problems">Problems</a></li>
               <li class=""><a href="#/createproblem">Create New</a></li>
@@ -109,6 +114,7 @@
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/controllers/dashboard.js"></script>
         <script src="scripts/controllers/registration.js"></script>
+        <script src="scripts/controllers/home.js"></script>
         <!-- endbuild -->
 </body>
 </html>

@@ -9,6 +9,8 @@
  */
 angular.module('metaideaApp')
   .controller('LoginCtrl', function ($scope, $routeParams, service) {
+    $scope.loggedIn = false;
+
     $scope.loginData = {
       username: "",
       password: ""
@@ -19,6 +21,14 @@ angular.module('metaideaApp')
 
       service.login($scope.loginData).then(function(){
 
+
+        $scope.loggedIn = false;
       });
+    };
+
+    $scope.logoutUser = function(){
+      service.logout();
+
+      $scope.loggedIn = true;
     };
   });

@@ -8,10 +8,7 @@
  * Controller of the metaideaApp
  */
 angular.module('metaideaApp')
-  .controller('DashboardCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('DashboardCtrl', function ($scope, $routeParams, service) {
+
+
   });
