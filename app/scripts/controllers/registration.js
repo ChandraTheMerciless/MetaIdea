@@ -22,6 +22,8 @@ angular.module('metaideaApp')
         });
     };
 
+    $scope.
+
     $scope.validPwds=true;
 
     $scope.verifyPasswords = function(item){
