@@ -25,24 +25,13 @@ angular.module('metaideaApp')
     }
 
     service.register = function(user){
-<<<<<<< HEAD
         var parseUser = new Parse.User();
         parseUser.set("username", user.name);
         parseUser.set("password", user.password);
         parseUser.set("department", user.department);
         parseUser.set("email", user.email);
-        
+
         return parseServices.register(parseUser);
-=======
-        var user = new Parse.User();
-        user.set("username", user.name);
-        user.set("password", user.password);
-        user.set("department", user.department);
-        user.set("email", user.email);
-
-        return parseServices.register(user);
->>>>>>> 32cc86085b61df2d1bfb6b8cee901a2475c129dc
-
     }
 
     var pageSize = 20;
