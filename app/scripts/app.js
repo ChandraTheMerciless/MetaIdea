@@ -66,17 +66,26 @@ angular
         redirectTo: '/'
       });
   })
-.run(function ($location, parseServices){
-    var currentUser = parseServices.current();
-    if (currentUser) {
-    // do stuff with the user
-        console.log('ALLOW');
-        $location.path('/home');
+.run(function ($rootScope, $location, parseServices){
+    $rootScope.$on('$routeChangeStart', function (event, next, current) {
+        var currentUser = parseServices.current();
+        if (currentUser) {
+            console.log('ALLOW');
+//            $location.path('/home');
 
-    } else {
-        // show the signup or login page
-        console.log('DENY');
-        event.preventDefault();
-        $location.path('/login');
-    }
+        } else {
+            if(next.$$route.controllerAs ==="login" || next.$$route.controllerAs ==="registration")
+            {
+
+            }
+            else {
+              // show the signup or login page
+                console.log('DENY');
+                event.preventDefault();
+                $location.path('/login');
+            }
+        }
+
+      });
+
 });

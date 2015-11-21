@@ -9,7 +9,7 @@
  */
 angular.module('metaideaApp')
   .controller('LoginCtrl', function ($scope, $routeParams, service, $location) {
-  
+
   //edit code to have service return whether current user is in local storage to determine whether variable is true or false
 
     $scope.loggedIn = false;
@@ -19,14 +19,12 @@ angular.module('metaideaApp')
       password: ""
     };
 
-    $scope.loginUser = function(page){
+    $scope.loginUser = function(){
       console.log($scope.loginData);
-      console.log(page);
 
       service.login($scope.loginData).then(function(){
-        
+            $location.path('/home');
       });
-      $location.path(page);
       $scope.loggedIn = true;
     };
 
