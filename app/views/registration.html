@@ -20,7 +20,7 @@
   </div>
   <div class="form-group">
     <label for="pwd">Re-enter Password:</label>
-    <input type="password" class="form-control" id="pwd-reenter"><span class="text-danger" ng-hide="validPwds">Passwords must match!</span>
+    <input type="password" class="form-control" id="pwd-reenter" ng-model="verifyPassword.password"><span class="text-danger" ng-hide="validPwds">Passwords must match!</span>
   </div>
   <button type="submit" class="btn btn-large btn-info" ng-click="newUserReg()">Submit</button>
 </form>

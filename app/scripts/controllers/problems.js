@@ -14,6 +14,7 @@ angular.module('metaideaApp')
     
       service.getProblems().then(function(response){
         $scope.problems = response.data;
+        console.log(response.data);
       })
   
   });

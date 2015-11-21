@@ -17,19 +17,31 @@ angular.module('metaideaApp')
       department:"",
       password:""
     };
+  
+  $scope.verifyPassword = {
+    password: ""
+  };
 
     $scope.newUserReg = function(){
+        $scope.verifyPasswords();
         service.register($scope.newUser).then(function(){
             alert('user created successfully');
         });
     };
 
-    $scope.
-
     $scope.validPwds=true;
 
-    $scope.verifyPasswords = function(item){
-      //will add code to validate passwords matching
-      item.validPwds=false;
+    $scope.verifyPasswords = function(){
+      console.log($scope.newUser.password);
+      console.log($scope.verifyPassword.password);
+      
+      var pwd = $scope.newUser.password;
+      var verifyPwd = $scope.verifyPassword.password;
+      
+      if(pwd == verifyPwd){
+        $scope.validPwds=true;
+      } else {
+        $scope.validPwds=false;
+      };
     };
   });
