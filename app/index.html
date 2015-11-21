@@ -23,10 +23,8 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div id="wrapper">
     <div class="header">
       <nav class="navbar navbar-default navbar-static-top" role="navigation">
-        <!--<div class="container">-->
           <div>
           <div class="navbar-header">
 
@@ -41,10 +39,11 @@
 
           </div>
 
-            <a class="navbar-brand"
-               ng-controller="LoginCtrl"
+<!--
+            <a ng-controller="LoginCtrl"
                ng-hide="loggedIn"
                ng-click="logoutUser()" href="#/">Logout</a>
+-->
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
           <!--</div>-->
@@ -55,7 +54,18 @@
               <li class=""><a href="#/problems">Problems</a></li>
               <li class=""><a href="#/createproblem">Create New</a></li>
               <li class=""><a href="#/editproblem">Edit Existing Problem</a></li>
-              <li class=""><a href="#/login">Login</a></li>
+              
+              <li class="">
+                <a href="#/login"
+                   ng-controller="LoginCtrl"
+                   ng-hide="loggedIn"
+                   ng-click="loginUser()">Login</a>
+              
+                <a ng-controller="LoginCtrl"
+                 ng-show="loggedIn"
+                 ng-click="logoutUser()" href="#/">Logout</a>
+              </li>
+              
               <li class=""><a href="#/registration">Register New User</a></li>
             </ul>
             </div>
@@ -65,10 +75,7 @@
       </nav>
     </div>
 
-    <!--<div id="wrapper">-->
     <div id="page-wrapper" ng-view=""></div>
-    </div>
-
     <div class="footer">
       <div class="container">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
