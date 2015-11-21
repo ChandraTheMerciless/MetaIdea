@@ -8,9 +8,8 @@
  * Controller of the metaideaApp
  */
 angular.module('metaideaApp')
-  .controller('RegistrationCtrl', function ($scope, service, $routeParams) {
+  .controller('RegistrationCtrl', function ($scope, service, $routeParams, $location) {
     
-    console.log(Parse.User.current())
     $scope.newUser = {
       name: "",
       email:"",
@@ -19,12 +18,15 @@ angular.module('metaideaApp')
     };
 
     $scope.newUserReg = function(){
-        service.register($scope.newUser).then(function(){
-            alert('user created successfully');
+        service.register($scope.newUser).then(function(user){
+            console.log('user created successfully');
+            $location.path('/login');
+//            service.login(user).then(function(){
+//                $location.path('/home');
+//            });
+            
         });
     };
-
-    $scope.
 
     $scope.validPwds=true;
 

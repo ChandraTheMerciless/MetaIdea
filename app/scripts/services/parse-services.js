@@ -81,7 +81,7 @@ angular.module('metaideaApp')
     service.login = function(loginData) {
       var def = $q.defer();
 
-      loginData.logIn(loginData.username, loginData.password, {
+      Parse.User.logIn(loginData.username, loginData.password, {
         success: function(loginData) {
           def.resolve(loginData);
           console.log("Success to login?");
@@ -95,7 +95,7 @@ angular.module('metaideaApp')
       return def.promise;
     };
 
-    service.getById = function (className, id, include) {
+    service.getByIdx = function (className, id, include) {
         var def = $q.defer();
 
         var Object = Parse.Object.extend(className);
@@ -104,7 +104,7 @@ angular.module('metaideaApp')
         query.equalTo("objectId", id);
 
         //to do: make it for loop
-        query.include(include);
+        query.relation(include);
 
         query.find({
           success: function(results) {
@@ -129,10 +129,100 @@ angular.module('metaideaApp')
 
         return promise;
     }
+
+    service.getById = function (className, id, include) {
+        var def = $q.defer();
+
+        var Object = Parse.Object.extend(className);
+        var query = new Parse.Query(Object);
+
+        query.equalTo("objectId", id);
+
+        //to do: make it for loop
+        //query.relation(include);
+
+        query.find({
+          success: function(results) {
+              //def.resolve(results);
+              var r = results[0].relation(include);
+                r.query().find({
+                  success: function(relationShipItems){
+                    def.resolve({item: results, relationship: relationShipItems});
+                    //response.success(trophies); //list of trophies pointed to by that player's "trophies" column.
+                  },
+                  error: function(error){
+                    response.error(error);
+                  }
+                })
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+
+        var promise = def.promise.then(function(results){
+          var items = []
+          for (let i = 0; i < results.item.length; i++) {
+            var object = results.item[i];
+            var res = object._toFullJSON();
+            res[include] = [];
+            for (let j = 0; j < results.relationship.length; j++) {
+                res[include].push(results.relationship[j]._toFullJSON());
+            }
+            items.push(res);
+          }
+
+          return {data: items};
+        })
+
+        return promise;
+    }
+    
+    
     service.current = function(){
         return Parse.User.current();
     }
     
+    service.getAllFromRelation= function(className, colName){
+        var def = $q.defer();
+
+        var Object = Parse.Object.extend(className);
+        var query = new Parse.Query(Object);
+        query.relation(colName)
+
+        query.find({
+          success: function(results) {
+              //def.resolve(results);
+              var r = player.relation(colName);
+                r.query().find({
+                  success: function(relationShipItems){
+                    def.resolve({item: results, relationship: relationShipItems});
+                    //response.success(trophies); //list of trophies pointed to by that player's "trophies" column.
+                  },
+                  error: function(error){
+                    response.error(error);
+                  }
+                })
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+
+        var promise = def.promise.then(function(results){
+          var items = []
+          for (var i = 0; i < results.length; i++) {
+            var object = results[i];
+            items.push(object.get(colName)._toFullJSON());
+          }
+
+          return items;
+        })
+
+        return promise;
+
+    }
+
     service.getAllFromPointer= function(className, colName){
         var def = $q.defer();
 

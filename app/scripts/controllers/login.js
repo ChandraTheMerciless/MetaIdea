@@ -8,7 +8,7 @@
  * Controller of the metaideaApp
  */
 angular.module('metaideaApp')
-  .controller('LoginCtrl', function ($scope, $routeParams, service) {
+  .controller('LoginCtrl', function ($scope, $routeParams, service, $location) {
     $scope.loginData = {
       username: "",
       password: ""
@@ -16,8 +16,8 @@ angular.module('metaideaApp')
 
     $scope.loginUser = function(){
       console.log($scope.loginData);
-
       service.login($scope.loginData).then(function(){
+            $location.path('/home');
 
       });
     };
