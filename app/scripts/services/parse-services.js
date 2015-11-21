@@ -94,9 +94,15 @@ angular.module('metaideaApp')
 
       return def.promise;
     };
+    service.logout = function(){
+      console.log("logout clicked in parse-services.js");
 
-    service.getByIdx = function (className, id, include) {
-        var def = $q.defer();
+      Parse.User.logOut();
+    };
+
+
+     service.getByIdx = function (className, id, include) {
+         var def = $q.defer();
 
         var Object = Parse.Object.extend(className);
         var query = new Parse.Query(Object);

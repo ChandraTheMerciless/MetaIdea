@@ -36,18 +36,10 @@ textarea{
   padding: 0.2em 0;
 }
 
-#wrapper{
-  /*min-height:calc(100% - 70px);*/
-  /*height:calc(100% - 70px);*/
-  min-height:calc(100% - 70px);
-  /*background-color:white;*/
-}
-
 #page-wrapper{
   padding-top:10px;
   padding-bottom:15px;
-  min-height:100%;
-  clear:both;
+  min-height:calc(100% - 120px);
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */

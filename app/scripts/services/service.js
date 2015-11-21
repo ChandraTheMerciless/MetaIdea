@@ -26,11 +26,10 @@ angular.module('metaideaApp')
 
     service.register = function(user){
          var parseUser = new Parse.User();
-        parseUser.set("username", user.name);
+         parseUser.set("username", user.name);
         parseUser.set("password", user.password);
         parseUser.set("department", user.department);
         parseUser.set("email", user.email);
-        
         return parseServices.register(parseUser);
     }
 
@@ -49,5 +48,10 @@ angular.module('metaideaApp')
     return parseServices.login(loginData);
   };
 
-    return service;
+   service.logout = function(){
+    console.log("logout btn hit in service.js");
+    return parseServices.logout();
+  };
+
+     return service;
   });
