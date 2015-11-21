@@ -20,8 +20,9 @@ angular.module('metaideaApp')
 
     $scope.loginUser = function(){
       console.log($scope.loginData);
+
       service.login($scope.loginData).then(function(){
-          window.location = $location.protocol()+'://' + $location.host()+':'+$location.port()+ "/#/home"
+           window.location = $location.protocol()+'://' + $location.host()+':'+$location.port()+ "/#/home"
       });
       $scope.loggedIn = true;
     };
