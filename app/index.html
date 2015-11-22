@@ -43,24 +43,10 @@
            <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav">
-              <li class="active"><a href="#/about">About</a></li>
-              <li class=""><a href="#/problems">Problems</a></li>
-              <li class=""><a href="#/createproblem">Create New</a></li>
-              <li class=""><a href="#/editproblem">Edit Existing Problem</a></li>
-              
-              <li class="">
-                <a href="#/login"
-                   ng-controller="LoginCtrl"
-                   ng-hide="loggedIn"
-                   ng-click="loginUser()">Login</a>
-              
-                <a ng-controller="LoginCtrl"
-                 ng-show="loggedIn"
-                 ng-click="logoutUser()" href="#/">Logout</a>
-              </li>
-              
-              <li class=""><a href="#/registration">Register New User</a></li>
-            </ul>
+              <li><a href="#/dashboard">Dashboard</a></li>
+              <li><a href="#/problems">Problems <span class="label label-success label-as-badge">42</span></a> </li>
+              <li><a href="#/about">About</a></li>
+             </ul>
             </div>
           </div>
           </div>

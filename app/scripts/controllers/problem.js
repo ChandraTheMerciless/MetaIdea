@@ -17,7 +17,9 @@ angular.module('metaideaApp')
   
     $scope.vote = function(item, value){
       item.votes = item.votes + value;
-//      service.updateProblem
+        service.vote(item, item.votes).then(function() {
+            alert('done')
+        })
     }
     
     $scope.newComment = {votes : 0}

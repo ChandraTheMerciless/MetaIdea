@@ -35,7 +35,9 @@ angular.module('metaideaApp')
 
     var pageSize = 20;
  
-
+    service.vote = function (item, votes) {
+        return parseServices.update(item.parseObject, 'votes', votes);
+    }
    service.editProblem = function(problemId){
     console.log("save button detected from server");
     var deferred = $q.defer();
