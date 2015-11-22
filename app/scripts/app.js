@@ -68,23 +68,23 @@ angular
   })
 .run(function ($rootScope, $location, parseServices){
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
-        var currentUser = parseServices.current();
-        if (currentUser) {
-            console.log('ALLOW');
-//            $location.path('/home');
-
-        } else {
-            if(next.$$route.controllerAs ==="login" || next.$$route.controllerAs ==="registration")
-            {
-
-            }
-            else {
-              // show the signup or login page
-                console.log('DENY');
-                event.preventDefault();
-                $location.path('/login');
-            }
-        }
+//        var currentUser = parseServices.current();
+//        if (currentUser) {
+//            console.log('ALLOW');
+////            $location.path('/home');
+//
+//        } else {
+//            if(next.$$route.controllerAs ==="login" || next.$$route.controllerAs ==="registration")
+//            {
+//
+//            }
+//            else {
+//              // show the signup or login page
+//                console.log('DENY');
+//                event.preventDefault();
+//                $location.path('/login');
+//            }
+//        }
 
       });
 

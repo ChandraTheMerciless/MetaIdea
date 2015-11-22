@@ -16,14 +16,6 @@ a:hover{
   cursor:pointer;
 }
 
-textarea{
-  /*width:300px;*/
-  /*height:130px;*/
-  /*padding:.5em .7em .5em .7em;*/
-  /*margin-top:10px;*/
-  /*margin-bottom:10px;*/
-}
-
 .highlight {
   color: #ff0000;
 }

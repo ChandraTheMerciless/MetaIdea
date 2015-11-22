@@ -36,9 +36,15 @@
             </button>
 
             <a class="navbar-brand" href="#/">Meta Idea</a>
-
           </div>
 
+            <ul class="nav navbar-top-links navbar-right">
+<!--              <li><a class="" href="#/createproblem">Create New</a></li>-->
+              <li><a ng-controller="LoginCtrl" 
+                     ng-click="logoutUser()" 
+                     ng-hide="loggedIn">Logout</a></li>
+            </ul>
+            
             <div class="collapse navbar-collapse" id="js-navbar-collapse" style="display:none">
            <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
