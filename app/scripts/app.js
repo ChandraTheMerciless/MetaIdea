@@ -68,8 +68,21 @@ angular
       });
   })
 .run(function ($rootScope, $location, parseServices){
+    var login =  $location.protocol()+'://' + $location.host()+':'+$location.port()+ "/login.html";
+
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
-//        var currentUser = parseServices.current();
+        var currentUser = parseServices.current();
+        if(!currentUser){
+//            if(window.location.contains('login')||window.location.contains('register')){
+//                
+//            }
+//            else{
+//            if(!window.location.hash ==='#/home'){
+                event.preventDefault();
+                window.location = login;
+//            }
+//            }
+        }
 //        if (currentUser) {
 //            console.log('ALLOW');
 ////            $location.path('/home');

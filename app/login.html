@@ -30,7 +30,6 @@
                             <h3 class="panel-title">Login</h3>
                         </div>
                         <div class="panel-body">
-                            <form role="form">
                                 <fieldset>
                                     <div class="form-group">
                                         <input class="form-control" placeholder="Username" name="username" type="username" ng-model="loginData.username" autofocus>
@@ -46,9 +45,8 @@
                                     <!-- Change this to a button or input when using this as a form -->
                                     <button class="btn btn-lg btn-success btn-block" ng-click="loginUser()">Login</button>
                                   <br />
-                                  <p class="form-link"><a id="newUserReg" href="/register.html">New Users Register</a></p>
+                                  <p class="form-link"><a id="newUserReg" href="/register.html">Register</a></p>
                                 </fieldset>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -76,6 +74,10 @@
     <!-- endbower -->
     <!-- endbuild -->
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+              <script src="bower_components/marked/lib/marked.js"></script>
+<!--      <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>-->
+      <script src="bower_components/angular-md/dist/angular-md.js"></script>
+
         <script src="scripts/app.js"></script>
         <script src="scripts/services/service.js"></script>
         <script src="scripts/services/parse-services.js"></script>

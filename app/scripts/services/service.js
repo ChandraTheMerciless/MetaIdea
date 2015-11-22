@@ -11,6 +11,10 @@ angular.module('metaideaApp')
   .service('service', function ($q, parseServices) {
 
     var service = {};
+    
+    service.getProblemCount = function() {
+        return parseServices.getCount('Problem');
+    }
 
     service.createProblems = function(problem){
         return parseServices.createProblems(problem);
@@ -38,11 +42,9 @@ angular.module('metaideaApp')
     service.vote = function (item, votes) {
         return parseServices.update(item.parseObject, 'votes', votes);
     }
-   service.editProblem = function(problemId){
-    var deferred = $q.defer();
-        deferred.resolve({data: problem});
-        return deferred.promise;
-  };
+   service.updateDescription = function(item, description){
+       return parseServices.update(item.parseObject, 'description', description);
+   };
     
     service.createComment = function(problem, comment){
         return parseServices.createComment(problem, comment);

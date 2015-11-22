@@ -10,7 +10,8 @@
 angular.module('metaideaApp')
    .controller('LoginCtrl', function ($scope, $routeParams, service, $location) {
 
-    var homePage = window.location = $location.protocol()+'://' + $location.host()+':'+$location.port()+ "/#/home";
+    var homePage = $location.protocol()+'://' + $location.host()+':'+$location.port()+ "/#/home";
+    var login =  $location.protocol()+'://' + $location.host()+':'+$location.port()+ "/login.html";
 
     $scope.loggedIn = false;
 
@@ -30,6 +31,7 @@ angular.module('metaideaApp')
 
     $scope.logoutUser = function(){
       service.logout();
+        window.location = login;
       $scope.loggedIn = false;
     };
   });

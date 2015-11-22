@@ -9,7 +9,9 @@
  */
 angular.module('metaideaApp')
   .controller('DashboardCtrl', function ($scope, $routeParams, service) {
-
+    service.getProblemCount().then(function(results){
+        $scope.problemsCount = results.data;
+    })
     $scope.likes = {
       num:0
     };

@@ -12,6 +12,25 @@ angular.module('metaideaApp')
     var service = {};
 
     Parse.initialize("koEFPqcIz7Gofau3n9l3vUofPuulaLzpK97atJar", "XD89jziE9YErMS9glQOWY8H5ZBMBmnO5P8WIboE8");
+    
+    service.getCount = function(className) {
+        var Class = Parse.Object.extend(className);
+        var query = new Parse.Query(Class);
+//        query.equalTo("playerName", "Sean Plott");
+        var deferred = $q.defer();
+
+        query.count({
+            success: function(count) {
+            // The count request succeeded. Show the count
+                  deferred.resolve({data: count});
+            },
+            error: function(error) {
+                  deferred.reject(error);
+            }
+        });
+        return deferred.promise;
+
+    }
 
     service.createProblems = function(item){
         var Problem = Parse.Object.extend("Problem");
@@ -301,7 +320,9 @@ angular.module('metaideaApp')
         return promise;
     }
 
-
+    
+    
+    
     return service;
 
 });

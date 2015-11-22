@@ -18,7 +18,7 @@ angular.module('metaideaApp')
     $scope.vote = function(item, value){
       item.votes = item.votes + value;
         service.vote(item, item.votes).then(function() {
-            alert('done')
+            toastr.success('Your vote has been submitted!');
         })
     }
     
@@ -26,14 +26,10 @@ angular.module('metaideaApp')
     
     $scope.addComment = function(){
         $scope.problem.comments.push($scope.newComment)
-        service.createComment($scope.problem, $scope.newComment);
+        service.createComment($scope.problem, $scope.newComment).then(function() {
+            toastr.success('Comment has been saved');
+        });
         $scope.newComment = {votes : 0}
-//      console.log($scope.problem.commentNew);
-      
-//      $http.post("../service.js", $scope.problem)
-//        .success(function(response){
-//          console.log("success?");
-//        })
     }
     
     $scope.editMode = false;
@@ -44,7 +40,9 @@ angular.module('metaideaApp')
     
     $scope.saveText = function(item){
       item.editMode = false;
-      service.editProblem($scope.problem);
+      service.updateDescription(item, $scope.problem.description).then(function(){
+          toastr.success('Your changes have been saved!');
+      });
     }
     
   });
