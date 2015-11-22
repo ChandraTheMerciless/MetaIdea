@@ -9,7 +9,8 @@
  */
 angular.module('metaideaApp')
    .controller('LoginCtrl', function ($scope, $routeParams, service, $location) {
-   //edit code to have service return whether current user is in local storage to determine whether variable is true or false
+
+    var homePage = window.location = $location.protocol()+'://' + $location.host()+':'+$location.port()+ "/#/home";
 
     $scope.loggedIn = false;
 
@@ -22,14 +23,13 @@ angular.module('metaideaApp')
       console.log($scope.loginData);
 
       service.login($scope.loginData).then(function(){
-           window.location = $location.protocol()+'://' + $location.host()+':'+$location.port()+ "/#/home"
+           window.location = homePage;
       });
       $scope.loggedIn = true;
     };
 
     $scope.logoutUser = function(){
       service.logout();
-
       $scope.loggedIn = false;
     };
   });

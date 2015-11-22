@@ -1,15 +1,32 @@
 <div class="problem-descrip">
-  <h2>{{problem.title}} 
-    <a class="glyphicon glyphicon-menu-down text-danger" 
-       ng-hide="problem.votes < 1 "
-       ng-click="vote(problem, -1)"></a>
-    <span>{{problem.votes}}</span>
-    <a class="glyphicon glyphicon-menu-up text-info" ng-click="vote(problem, 1)"></a>
-  </h2>
-  <p>{{problem.description}}</p>
+  <h2>{{problem.title}}   </h2>
+    <hr/>
+    <div class="row">
+        <div class="col-md-10">
+            Tags: 
+            <span class="label label-pill label-info">C#</span>
+            <span class="label label-pill label-info">share point</span>
+            <span class="label label-pill label-info">Java</span>
+            <span class="label label-pill label-info">Development</span>
+        </div>
+
+        <div class="col-md-2">
+            <a class="glyphicon glyphicon-menu-down text-danger" 
+                ng-hide="problem.votes < 1 "
+                ng-click="vote(problem, -1)">
+            </a>
+            <span class="">{{problem.votes}} Votes</span>
+            <a class="glyphicon glyphicon-menu-up text-info" ng-click="vote(problem, 1)"></a>
+         </div>
+    </div>
+  <hr />  
+
+    <p>{{problem.description}}</p>
   <hr />  
 </div>
 
+<h4>{{problem.comments.length}} Answers</h4>
+<hr/>
 <div class="problem-comments" ng-repeat="comment in problem.comments">
   <h3>{{comment.creator}}
         <a class="glyphicon glyphicon-menu-down text-danger" 
@@ -25,6 +42,6 @@
 
 <div class="problem-comment-submit">
   <label for="commentNew">Comments:</label> <br />
-  <textarea id="submitCommentText" ng-model="newComment.description"></textarea> <br />
+  <textarea id="submitCommentText" ng-model="newComment.description" class="form-control" rows="12"></textarea> <br />
   <button type="submit" id="submitCommentBtn" class="btn btn-info" ng-click="addComment()">Submit Comment</button>
 </div>

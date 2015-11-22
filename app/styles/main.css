@@ -1,10 +1,14 @@
 html{
   height:100%;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 19.5px;
 }
 
 body {
   height:100%;
   padding: 0;
+/*    font-size: 14px;*/
 }
 
 a:hover{
@@ -118,7 +122,6 @@ h2{
 .problem-descrip p{
   padding-left:3%;
   padding-right:3%;
-  font-size:18px;
 }
 
 .problem-comments, .problem-comment-submit{
@@ -127,9 +130,6 @@ h2{
 }
 
 .problem-comments p{
-/*
   padding-left:5%;
   padding-right:5%;
-*/
-  font-size:16px;
 }

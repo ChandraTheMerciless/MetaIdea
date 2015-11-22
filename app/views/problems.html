@@ -2,9 +2,24 @@
 <hr />
 
 <div ng-repeat="problem in problems">
-  <h2>
-    <a href="#/problem/{{problem.objectId}}">{{problem.title}}</a>
-  </h2>
-  <h3>{{problem.author}}</h3>
+  <h4>
+    <a href="#/problem/{{problem.objectId}}">{{problem.title  | limitTo: 100}} ...</a>
+  </h4>
+    <div>
+    {{problem.description | limitTo: 200}} ....
+    </div>
+    <div class="col-md-offset">
+        <span class="label label-pill label-success">{{problem.votes}} Votes</span>
+        <span class="label label-pill label-default">{{problem.comments.count}}12 comments</span>
+        <span class="label label-pill label-warning">30 views</span>
+    </div>
+     <br />
+    <div class="col-md-offset">
+        Tags: 
+        <span class="label label-pill label-info">C#</span>
+        <span class="label label-pill label-info">share point</span>
+        <span class="label label-pill label-info">Java</span>
+        <span class="label label-pill label-info">Development</span>
+    </div>
   <hr />
 </div>

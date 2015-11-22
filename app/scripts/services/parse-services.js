@@ -171,6 +171,7 @@ angular.module('metaideaApp')
           for (let i = 0; i < results.item.length; i++) {
             var object = results.item[i];
             var res = object._toFullJSON();
+              res.parseObject = object;
             res[include] = [];
             for (let j = 0; j < results.relationship.length; j++) {
                 res[include].push(results.relationship[j]._toFullJSON());
@@ -255,6 +256,18 @@ angular.module('metaideaApp')
           return items;
         })
 
+        return promise;
+    }
+    
+    service.update = function (item, property, value) {
+        item.set(property, value);
+        var def = $q.defer();
+        var promise = def.promise;
+        item.save(null, {
+          success: function(results) {
+              def.resolve(results);
+          }
+        });
         return promise;
     }
 
