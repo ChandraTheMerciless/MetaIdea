@@ -36,4 +36,15 @@ angular.module('metaideaApp')
 //        })
     }
     
+    $scope.editMode = false;
+  
+    $scope.editText = function(item){
+      item.editMode = true;
+    }
+    
+    $scope.saveText = function(item){
+      item.editMode = false;
+      service.editProblem($scope.problem);
+    }
+    
   });

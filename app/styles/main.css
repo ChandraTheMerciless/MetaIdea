@@ -35,6 +35,8 @@ a:hover{
 #page-wrapper{
   padding-top:10px;
   padding-bottom:15px;
+  padding-left:4em;
+  padding-right:2em;
   min-height:calc(100% - 120px);
 }
 
@@ -111,17 +113,33 @@ h2{
 }
 
 /*individual problem page*/
+
+.problem-descrip p, .problem-comments p{
+  padding-left:1em;
+  text-align:justify;
+}
+
+.problem-descrip textarea, .problem-comments textarea{
+  margin-bottom:1em;
+}
+
 .problem-descrip p{
+/*
   padding-left:3%;
   padding-right:3%;
+*/
 }
 
 .problem-comments, .problem-comment-submit{
+/*
   padding-left:3%;
   padding-right:3%;
+*/
 }
 
 .problem-comments p{
+/*
   padding-left:5%;
   padding-right:5%;
+*/
 }

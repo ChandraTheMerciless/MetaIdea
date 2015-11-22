@@ -1,3 +1,8 @@
+<!--Bootstrap theme, SB Admin 2, is licensed under the Apache License, version 2,
+    located at http://www.apache.org/licenses/LICENSE-2.0.txt
+
+    Angular is licensed under MIT-->
+
 <!doctype html>
 <html>
   <head>
@@ -39,28 +44,33 @@
           </div>
 
             <ul class="nav navbar-top-links navbar-right">
-<!--              <li><a class="" href="#/createproblem">Create New</a></li>-->
               <li><a ng-controller="LoginCtrl" 
                      ng-click="logoutUser()" 
                      ng-hide="loggedIn">Logout</a></li>
             </ul>
-            
-            <div class="collapse navbar-collapse" id="js-navbar-collapse" style="display:none">
-           <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-            <ul id="side-menu" class="nav">
-              <li><a href="#/dashboard">Dashboard</a></li>
-              <li><a href="#/problems">Problems <span class="label label-success label-as-badge">42</span></a> </li>
-              <li><a href="#/about">About</a></li>
-             </ul>
+
+          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+             <div class="navbar-default sidebar" role="navigation">
+              <div class="sidebar-nav navbar-collapse">
+                <ul id="side-menu" class="nav">
+                  <li><a href="#/dashboard">Dashboard</a></li>
+                  <li><a href="#/problems">Problems <span class="label label-success label-as-badge">42</span></a> </li>
+                  <li><a href="#/about">About</a></li>
+                 </ul>
+                </div>
+              </div>
             </div>
-          </div>
-          </div>
           </div>
       </nav>
     </div>
 
-    <div id="page-wrapper" ng-view=""></div>
+    <div id="page-wrapper" >
+      <div class="row">
+        <div class="col-md-11" ng-view="">
+        </div>
+      </div>
+    </div>
     <div class="footer">
       <div class="container">
         <p>From Team MacGyver, using <span class="glyphicon glyphicon-scissors"></span>, <span class="glyphicon glyphicon-wrench"></span>, and <span class="glyphicon glyphicon-heart"></span>. Licensed under MIT.</p>
@@ -96,6 +106,7 @@
     <!-- endbower -->
     <!-- endbuild -->
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="bower_components/angular-md/dist/angular-md.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/services/service.js"></script>
         <script src="scripts/controllers/problem.js"></script>

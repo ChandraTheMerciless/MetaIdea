@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'angucomplete-alt',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'yaru22.md'
   ])
   .config(function ($routeProvider) {
     $routeProvider
