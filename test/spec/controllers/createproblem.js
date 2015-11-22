@@ -25,11 +25,11 @@ describe('Controller: CreateproblemCtrl', function () {
     }));
     
 
-    it('should have empty description at the initializtion' , function(){
+    it('should have empty description at the initialization' , function(){
         expect(scope.problem.description).toBe('');
     });
     it('should save the problem', function() {
-        scope.problem = {}
+        scope.problem = {};
         scope.createProblem();
         expect(service.createProblems).toHaveBeenCalledWith(scope.problem);
     })

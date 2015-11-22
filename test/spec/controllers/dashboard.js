@@ -1,36 +1,32 @@
 'use strict';
 
 describe('Controller: DashboardCtrl', function () {
-  var DashboardCtrl,scope;
+  var DashboardCtrl,scope, $q;
+
+    beforeEach(module('metaideaApp'));
+
+    var service = {
+        getProblemCount : function(problem){
+            var def = $q.defer();
+            return promise;
+    }};
+
+    beforeEach(inject(function ($controller, $rootScope, _$q_) {
+        $q = _$q_;
+        spyOn(service, 'getProblemCount').andReturn($q.when({data: 5}));
+        scope = $rootScope.$new();
+        DashboardCtrl = $controller('DashboardCtrl', {
+            $scope: scope,
+            service: service
+        });
+    }));
 
 
-//    // load the controller's module
-//    beforeEach(module('metaideaApp'));
-//    
-//    beforeEach(angular.mock.inject(function($rootScope, $http, $location, $timeout, $controller, $injector, parseServices){
-//        scope = $rootScope.$new();
-//        http = $http;
-//        location = $location;
-//        timeout = $timeout;
-//        service = $injector.get('services'); //not sure the name, you may try 'ConfigService' as well.
-//
-//        $controller('DashboardCtrl', {$scope: scope, $http: http, $location: location, $timeout: timeout, configService: service});
-//    }));
-//
-//    
- 
-
-//
-//  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    DashboardCtrl = $controller('DashboardCtrl', {
-      $scope: scope
-      // place here mocked dependencies
-    });
-  }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(DashboardCtrl.awesomeThings.length).toBe(3);
+  it('should initialize correctly', function () {
+    expect(scope.problemsCount).toBe(0);
   });
+
+    it('should show the correct no of problems', function(){
+        expect(service.getProblemCount).toHaveBeenCalled();
+    });
 });

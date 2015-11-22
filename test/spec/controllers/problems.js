@@ -5,19 +5,27 @@ describe('Controller: ProblemsCtrl', function () {
   // load the controller's module
   beforeEach(module('metaideaApp'));
 
-  var ProblemsCtrl,
+  var ProblemsCtrl,$q,
     scope;
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    ProblemsCtrl = $controller('ProblemsCtrl', {
-      $scope: scope
-      // place here mocked dependencies
-    });
-  }));
+    var service = {
+        getProblems : function(){
+            var def = $q.defer();
+            return promise;
+        }};
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(ProblemsCtrl.awesomeThings.length).toBe(3);
+
+    beforeEach(inject(function ($controller, $rootScope, _$q_) {
+        $q = _$q_;
+        spyOn(service, 'getProblems').andReturn($q.when({data: []}));
+        scope = $rootScope.$new();
+        ProblemsCtrl = $controller('ProblemsCtrl', {
+            $scope: scope,
+            service: service
+        });
+    }));
+
+  it('should should show a list of problems', function () {
+      expect(service.getProblems).toHaveBeenCalled();
   });
 });

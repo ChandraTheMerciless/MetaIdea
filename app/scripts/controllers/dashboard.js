@@ -12,7 +12,7 @@ angular.module('metaideaApp')
     $scope.problemsCount = 0;
     service.getProblemCount().then(function(results){
         $scope.problemsCount = results.data;
-    })
+    });
     $scope.likes = {
       num:0
     };
@@ -26,10 +26,10 @@ angular.module('metaideaApp')
       num:0
     };
 
-    var problemList = $routeParams;
+    //var problemList = $routeParams;
 
-    service.getProblems().then(function(response){
-      $scope.problems = response.data;
-    })
+    //service.getProblems().then(function(response){
+    //  $scope.problems = response.data;
+    //})
 
   });
