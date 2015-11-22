@@ -51,13 +51,17 @@
 
     </h3>
   <div ng-hide="comment.editMode" class=row>
-    <p>{{comment.description}}</p>
+    <md ng-model="comment.description"></md>
     <button ng-click="editText(comment)" class="btn btn-warning pull-right">Edit</button>
   </div>
   
   <div class="row" ng-show="comment.editMode">
     <textarea class="form-control" rows="6" ng-model="comment.description" >{{comment.description}}</textarea>
-    <button ng-click="saveText(comment)" class="btn btn-info pull-right">Save</button>
+      <h4 ng-show="comment.description">preview</h4>
+      <hr ng-show="comment.description">
+      <md ng-model="comment.description"></md>
+
+      <button ng-click="saveText(comment)" class="btn btn-info pull-right">Save</button>
   </div>
   <hr />
 </div>
@@ -65,5 +69,8 @@
 <div class="problem-comment-submit">
   <label for="commentNew">Comments:</label> <br />
   <textarea id="submitCommentText" ng-model="newComment.description" class="form-control" rows="12"></textarea> <br />
+    <h4 ng-show="newComment.description">preview</h4>
+    <hr ng-show="newComment.description">
+    <md ng-model="newComment.description"></md>
   <button type="submit" id="submitCommentBtn" class="btn btn-info" ng-click="addComment()">Submit Comment</button>
 </div>

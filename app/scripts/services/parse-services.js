@@ -16,12 +16,10 @@ angular.module('metaideaApp')
     service.getCount = function(className) {
         var Class = Parse.Object.extend(className);
         var query = new Parse.Query(Class);
-//        query.equalTo("playerName", "Sean Plott");
         var deferred = $q.defer();
 
         query.count({
             success: function(count) {
-            // The count request succeeded. Show the count
                   deferred.resolve({data: count});
             },
             error: function(error) {
@@ -30,7 +28,7 @@ angular.module('metaideaApp')
         });
         return deferred.promise;
 
-    }
+    };
 
     service.createProblems = function(item){
         var Problem = Parse.Object.extend("Problem");
@@ -65,7 +63,7 @@ angular.module('metaideaApp')
           success: function(results) {
               deferred.resolve({data: results});
             // The object was saved successfully.
-            var relation = problem.parseObject.relation("comment");
+            var relation = problem.parseObject.relation("comments");
             relation.add(parsecomment)
             problem.parseObject.save();
           },

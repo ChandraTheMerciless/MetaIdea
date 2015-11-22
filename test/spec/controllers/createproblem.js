@@ -7,22 +7,11 @@ describe('Controller: CreateproblemCtrl', function () {
     var CreateproblemCtrl,$q,
     scope;
 
-    var DataServiceMock= {}
-
-//  module(function ($provide) {
-//    $provide.value('parseServices', DataServiceMock)
-//  })
     var service = {createProblems : function(problem){
         var def = $q.defer();
         return promise;
     }};
-//    beforeEach(inject(function (_services_) {
-//     service = _services_;
-//    }));
 
-
-
-    
     // Initialize the controller and a mock scope
     beforeEach(inject(function ($controller, $rootScope, _$q_) {
         $q = _$q_;
@@ -43,6 +32,5 @@ describe('Controller: CreateproblemCtrl', function () {
         scope.problem = {}
         scope.createProblem();
         expect(service.createProblems).toHaveBeenCalledWith(scope.problem);
-
     })
 });

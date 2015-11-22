@@ -14,19 +14,19 @@ angular.module('metaideaApp')
     
     service.getProblemCount = function() {
         return parseServices.getCount('Problem');
-    }
+    };
 
     service.createProblems = function(problem){
         return parseServices.createProblems(problem);
-    }
+    };
 
     service.getProblems = function(){
         return parseServices.getAll("Problem");
-    }
+    };
 
     service.getProblem = function(problemId){
         return parseServices.getById("Problem", problemId, "comments");
-    }
+    };
 
     service.register = function(user){
          var parseUser = new Parse.User();
@@ -35,20 +35,20 @@ angular.module('metaideaApp')
         parseUser.set("department", user.department);
         parseUser.set("email", user.email);
         return parseServices.register(parseUser);
-    }
+    };
 
     var pageSize = 20;
  
     service.vote = function (item, votes) {
         return parseServices.update(item.parseObject, 'votes', votes);
-    }
+    };
    service.updateDescription = function(item, description){
        return parseServices.update(item.parseObject, 'description', description);
    };
     
     service.createComment = function(problem, comment){
         return parseServices.createComment(problem, comment);
-    }
+    };
 
   service.login = function(loginData){
     console.log("login btn hit");
