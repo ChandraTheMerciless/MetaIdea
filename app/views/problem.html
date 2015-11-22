@@ -27,7 +27,7 @@
 
 <h4>{{problem.comments.length}} Answers</h4>
 <hr/>
-<div class="problem-comments" ng-repeat="comment in problem.comments">
+<div class="problem-comments" ng-repeat="comment in problem.comments | orderBy:'-votes'">
   <h3>{{comment.creator}}
         <a class="glyphicon glyphicon-menu-down text-danger" 
             ng-hide="comment.votes < 1 "

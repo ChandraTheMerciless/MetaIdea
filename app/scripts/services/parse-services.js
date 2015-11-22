@@ -14,24 +14,52 @@ angular.module('metaideaApp')
     Parse.initialize("koEFPqcIz7Gofau3n9l3vUofPuulaLzpK97atJar", "XD89jziE9YErMS9glQOWY8H5ZBMBmnO5P8WIboE8");
 
     service.createProblems = function(item){
-          var Problem = Parse.Object.extend("Problem");
-          var problem = new Problem();
-          problem.set("title", item.title);
-          problem.set("description", item.description);
-          problem.set("votes", 0);
+        var Problem = Parse.Object.extend("Problem");
+        var problem = new Problem();
+        problem.set("title", item.title);
+        problem.set("description", item.description);
+        problem.set("votes", 0);
 
-          var deferred = $q.defer();
-          problem.save(null, {
-              success: function(results) {
-                  deferred.resolve({data: results});
-              },
-              error: function(results, error) {
-                  deferred.reject(error);
-              }
+        var deferred = $q.defer();
+        problem.save(null, {
+          success: function(results) {
+              deferred.resolve({data: results});
+          },
+          error: function(results, error) {
+              deferred.reject(error);
+          }
 
-          })
-          return deferred.promise;
+        })
+        return deferred.promise;
       }
+    
+    service.createComment =function(problem, comment) {
+        var deferred = $q.defer();
+
+        var Comment = Parse.Object.extend('Comment');
+        var parsecomment = new Comment();
+        parsecomment.set('description', comment.description)
+        parsecomment.set('votes',0)
+        comment.parseObject = parsecomment;
+        
+        parsecomment.save(null, {
+          success: function(results) {
+              deferred.resolve({data: results});
+            // The object was saved successfully.
+            var relation = problem.parseObject.relation("comment");
+            relation.add(parsecomment)
+            problem.parseObject.save();
+          },
+          error: function(myComment, error) {
+            // The save failed.
+            // error is a Parse.Error with an error code and description.
+          }
+        });
+
+        return deferred.promise;
+
+        
+    }
 
     service.getAll= function(className){
         var def = $q.defer();
@@ -174,7 +202,9 @@ angular.module('metaideaApp')
               res.parseObject = object;
             res[include] = [];
             for (let j = 0; j < results.relationship.length; j++) {
-                res[include].push(results.relationship[j]._toFullJSON());
+                var relationshipObject = results.relationship[j]._toFullJSON(); 
+                relationshipObject.parseObject = results.relationship[j];
+                res[include].push(relationshipObject);
             }
             items.push(res);
           }

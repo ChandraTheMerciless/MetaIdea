@@ -44,6 +44,10 @@ angular.module('metaideaApp')
         deferred.resolve({data: problem});
         return deferred.promise;
   };
+    
+    service.createComment = function(problem, comment){
+        return parseServices.createComment(problem, comment);
+    }
 
   service.login = function(loginData){
     console.log("login btn hit");
