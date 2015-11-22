@@ -36,12 +36,13 @@ module.exports = function(config) {
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
-      "test/mock/**/*.js",
+//      "test/mock/**/*.js",
       "test/spec/**/*.js"
     ],
 
     // list of files / patterns to exclude
     exclude: [
+//        'app/scripts/services/parse-services.js'
     ],
 
     // web server port
@@ -57,6 +58,7 @@ module.exports = function(config) {
     // - IE (only Windows)
     browsers: [
       "PhantomJS"
+//        "Chrome"
     ],
 
     // Which plugins to enable

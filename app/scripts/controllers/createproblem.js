@@ -15,7 +15,6 @@ angular.module('metaideaApp')
   };
   
   $scope.createProblem = function (){
-    console.log($scope.problem);
     service.createProblems($scope.problem).then(function(response){
         alert(response);
     });

@@ -195,8 +195,8 @@ angular.module('metaideaApp')
         });
 
         var promise = def.promise.then(function(results){
-          var items = []
-          for (let i = 0; i < results.item.length; i++) {
+          var items = [];
+          for (var i = 0; i < results.item.length; i++) {
             var object = results.item[i];
             var res = object._toFullJSON();
               res.parseObject = object;
