@@ -22,7 +22,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-         <div class="container" ng-controller="LoginCtrl">
+         <div class="container" ng-controller="RegistrationCtrl">
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-4">
                     <div class="login-panel panel panel-default">
@@ -32,26 +32,23 @@
                         <div class="panel-body">
                             <form role="form">
                               <div class="form-group">
-                                <label for="name">Name:</label>
-                                <input type="text" class="form-control" id="name" ng-model="newUser.name">
+                                <input type="text" class="form-control" id="name" ng-model="newUser.name" placeholder="Username" autofocus>
                               </div>
                               <div class="form-group">
-                                <label for="email">Email Address:</label>
-                                <input type="email" class="form-control" id="email" ng-model="newUser.email">
+                                <input type="email" class="form-control" id="email" placeholder="Email Address" ng-model="newUser.email">
                               </div>
                               <div class="form-group">
-                                <label for="dept">Department:</label>
-                                <input type="text" class="form-control" id="dept" ng-model="newUser.department">
+                                <input type="text" class="form-control" id="dept" placeholder="Department" ng-model="newUser.department">
                               </div>
                               <div class="form-group">
-                                <label for="pwd">Password:</label>
-                                <input type="password" class="form-control" id="pwd" ng-model="newUser.password">
+                                <input type="password" class="form-control" id="pwd" placeholder="Password" ng-model="newUser.password">
                               </div>
                               <div class="form-group">
-                                <label for="pwd">Re-enter Password:</label>
-                                <input type="password" class="form-control" id="pwd-reenter"><span class="text-danger" ng-hide="validPwds">Passwords must match!</span>
+                                <input type="password" class="form-control" id="pwd-reenter" placeholder="Re-enter Password"><span class="text-danger" ng-hide="validPwds">Passwords must match!</span>
                               </div>
-                              <button type="submit" class="btn btn-large btn-info" ng-click="newUserReg()">Submit</button>
+                              <button type="submit" class="btn btn-lg btn-success btn-block" ng-click="newUserReg()">Submit</button>
+                              <br />
+                              <a class="form-link" id="existingUsers" href="/login.html">Existing Users</a>
                             </form>
                         </div>
                     </div>
