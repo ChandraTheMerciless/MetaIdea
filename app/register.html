@@ -43,10 +43,13 @@
                               <div class="form-group">
                                 <input type="password" class="form-control" id="pwd" placeholder="Password" ng-model="newUser.password">
                               </div>
+<!--
                               <div class="form-group">
                                 <input type="password" class="form-control" id="pwd-reenter" placeholder="Re-enter Password"><span class="text-danger" ng-hide="validPwds">Passwords must match!</span>
                               </div>
+-->
                               <button type="submit" class="btn btn-lg btn-success btn-block" ng-click="newUserReg()">Submit</button>
+                              <span class="text-info" ng-show="registerSuccess">User created successfully!</span>
                               <br />
                               <p class="form-link"><a id="existingUsers" href="/login.html">Login</a></p>
                             </form>
@@ -74,13 +77,25 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="bower_components/marked/lib/marked.js"></script>
+<!--      <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>-->
+      <script src="bower_components/angular-md/dist/angular-md.js"></script>
+
         <script src="scripts/app.js"></script>
         <script src="scripts/services/service.js"></script>
+        <script src="scripts/controllers/problem.js"></script>
+        <script src="scripts/controllers/problems.js"></script>
         <script src="scripts/services/parse-services.js"></script>
+        <script src="scripts/controllers/createproblem.js"></script>
+        <script src="scripts/controllers/editproblem.js"></script>
         <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/dashboard.js"></script>
+        <script src="scripts/controllers/registration.js"></script>
+        <script src="scripts/controllers/home.js"></script>
         <!-- endbuild -->
 </body>
 </html>

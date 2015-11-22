@@ -20,7 +20,8 @@
     "app/scripts/**/*.js",
     "test/spec/**/createproblem.js",
     "test/spec/**/dashboard.js",
-    "test/spec/**/problems.js"
+    "test/spec/**/problems.js",
+    "test/spec/**/problem.js"
   ], 
     "src_files_ignore": "app/scripts/**/xparse-services.js"
 }
