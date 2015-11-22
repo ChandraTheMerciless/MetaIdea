@@ -25,6 +25,7 @@ describe('Controller: ProblemCtrl', function () {
     spyOn(service, 'getProblem').andReturn($q.when('ss'));
     spyOn(service, 'updateDescription').andReturn($q.when('ss'));
     spyOn(service, 'createComment').andReturn($q.when('ss'));
+    spyOn(service, 'vote').andReturn($q.when('ss'));
     
     
     scope = $rootScope.$new();
@@ -58,13 +59,15 @@ describe('Controller: ProblemCtrl', function () {
   
   it('should expect createComment in service to be called on addComment', function(){
     scope.problem = {comments : []};
-//    spyOn();
-    
     scope.addComment();
-    
     expect(service.createComment).toHaveBeenCalled;
-    
-    
   })
+  
+  it('loval variable\'s vote object should increase by 1 on vote click', function(){
+    var item = {votes:0};
+    var value = 1;
+    scope.vote(item, value);
+    expect(item.votes).toBe(1);
+  });
   
 });
