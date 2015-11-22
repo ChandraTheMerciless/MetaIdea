@@ -4,5 +4,9 @@
 <label>Title:</label><br />
 <input type="text" ng-model="problem.title" class="form-control"/> <br />
 <label>Description:</label><br />
-<textarea ng-model="problem.description" class="form-control"></textarea> <br />
+<textarea ng-model="problem.description" class="form-control" rows="12"></textarea> <br />
+
+<h4 ng-show="problem.description">Preview</h4>
+<hr ng-show="problem.description"/>
+<md ng-model="problem.description" ></md>
 <button type="submit" id="newProblem" class="btn btn-info" ng-click="createProblem()">Submit Problem</button>

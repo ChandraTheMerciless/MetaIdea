@@ -9,6 +9,7 @@
  */
 angular.module('metaideaApp')
   .controller('DashboardCtrl', function ($scope, $routeParams, service) {
+    $scope.problemsCount = 0;
     service.getProblemCount().then(function(results){
         $scope.problemsCount = results.data;
     })

@@ -8,7 +8,7 @@
  * Controller of the metaideaApp
  */
 angular.module('metaideaApp')
-  .controller('CreateproblemCtrl', function (service, $scope, $routeParams) {
+  .controller('CreateproblemCtrl', function (service, $scope, $location) {
   
   $scope.problem = {
     description: ''
@@ -16,7 +16,9 @@ angular.module('metaideaApp')
   
   $scope.createProblem = function (){
     service.createProblems($scope.problem).then(function(response){
-        alert(response);
+        toastr.success('Your data has been submitted!');
+        $location.path( "/problem/" + response.data.id );
+
     });
     
   }

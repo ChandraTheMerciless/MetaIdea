@@ -29,6 +29,10 @@
 
       <div ng-show="problem.editMode">
         <textarea class="form-control" rows="12" ng-model="problem.description"><md ng-model="mdText">{{problem.description}}</md></textarea>
+          <h4>preview</h4>
+          <hr>
+          <md ng-model="problem.description">
+          </md>
         <button class="btn btn-info pull-right" ng-click="saveText(problem)">Save</button>
       </div>
   </div>
