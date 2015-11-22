@@ -26,6 +26,7 @@ angular.module('metaideaApp')
     
     $scope.addComment = function(){
         $scope.problem.comments.push($scope.newComment)
+        service.createComment($scope.problem, $scope.newComment);
         $scope.newComment = {votes : 0}
 //      console.log($scope.problem.commentNew);
       
